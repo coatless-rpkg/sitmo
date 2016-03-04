@@ -26,7 +26,13 @@ devtools::install_github("coatless/sitmo")
 
 To use `sitmo` in your R package, modify the `DESCRIPTION` file by adding:
 
+    LinkingTo: Rcpp, sitmo
+    Imports:
+        Rcpp (>= 0.12.3)
+
 Add the following to your `Makevars` and `Makevars.win` file to enable C++11:
+
+    CXX_STD = CXX11
 
 Within the `C++` file, then add:
 
