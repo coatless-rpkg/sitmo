@@ -94,10 +94,10 @@ public:
   typedef uint32_t result_type;
   
   // req: 26.5.1.3 Uniform random number generator requirements, p.906, table 116, row 3
-  static result_type (min)() { return 0; }
+  static constexpr result_type (min)() { return 0; }
   
   // req: 26.5.1.3 Uniform random number generator requirements, p.906, table 116, row 4
-  static result_type (max)() { return 0xFFFFFFFF; }
+  static constexpr result_type (max)() { return 0xFFFFFFFF; }
   
   // -------------------------------------------------
   // Constructors
