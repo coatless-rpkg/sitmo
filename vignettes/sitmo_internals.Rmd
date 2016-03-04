@@ -20,10 +20,19 @@ Within this vignette, details on how to use [sitmo](http://www.sitmo.com/article
 
 The `sitmo` header file is contained within this package. To use the `sitmo` header within your own package, you can link to this package within your description file. e.g.
 
-```{r, eval = F, engine='asis'}
-LinkingTo: Rcpp, sitmo
-Imports:
-    Rcpp (>= 0.12.3)
+    LinkingTo: Rcpp, sitmo
+    Imports:
+        Rcpp (>= 0.12.3)
+
+Add the following to your `Makevars` and `Makevars.win` file to enable C++11:
+
+    CXX_STD = CXX11
+
+Within the `C++` file, then add:
+
+```{r eval = F, engine='Rcpp'}
+#include <random>  // C++11 RNG library
+#include <sitmo.h> // SITMO PPRNG
 ```
 
 Or you can do a direct embed in your application. I would advise for the prior though and, hence, the reason for this package. 
@@ -77,6 +86,9 @@ The examples displayed in the vignette are taken directly from the project's `sr
 Below is the most rudimentary example using `sitmo`. It describes the process of creating a `sitmo` engine and obtaining a draw. 
 
 ```{r engine='Rcpp', eval = F}
+#include <random>  // C++11 RNG library
+#include <sitmo.h> // SITMO PPRNG
+
 //' Example RNG Draws with sitmo
 //' 
 //' Shows a basic setup and use case for sitmo. 
@@ -109,6 +121,9 @@ Here the ability for a seed to be set is used.
 
 
 ```{r engine='Rcpp', eval = F}
+#include <random>  // C++11 RNG library
+#include <sitmo.h> // SITMO PPRNG
+
 //' Example Seed Set and RNG Draws with sitmo
 //' 
 //' Shows how to set a seed in sitmo. 
@@ -148,6 +163,9 @@ Rcpp::NumericVector sitmo_engine_seed(unsigned int n, unsigned int seed) {
 The code used here can be found to work when the initial state of the engine needs to be reverted. 
 
 ```{r engine='Rcpp', eval = F}
+#include <random>  // C++11 RNG library
+#include <sitmo.h> // SITMO PPRNG
+
 //' Example Seed Set and RNG Draws with sitmo
 //' 
 //' Shows how to set a seed in sitmo. 
@@ -192,6 +210,9 @@ Rcpp::NumericMatrix sitmo_engine_reset(unsigned int n, unsigned int seed) {
 This example displays the ability of `sitmo` to handle parallel streams of rng when a predefined number of streams is known.
 
 ```{r engine='Rcpp',eval = F}
+#include <random>  // C++11 RNG library
+#include <sitmo.h> // SITMO PPRNG
+
 //' Two RNG engines running side-by-side
 //' 
 //' Shows how to create two separate RNGs and increase them together. 
