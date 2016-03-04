@@ -1,5 +1,7 @@
 #include <RcppArmadillo.h>
+#include <random>
 #include <sitmo.h>
+
 
 // [[Rcpp::export]]
 arma::vec qexp( arma::vec& u, double lambda ){
