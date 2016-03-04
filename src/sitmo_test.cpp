@@ -1,16 +1,10 @@
 #include <RcppArmadillo.h>
 #include <random>
-#include <sitmo.h>
+#include <prng_engine.h>
 
-
-// [[Rcpp::export]]
-arma::vec qexp( arma::vec& u, double lambda ){
-  
-  u = arma::log(0.1e1 - u);
-  u = - u / lambda;
-  
-  return u;
-}
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 
 double qexp( double u, double lambda ){
   
@@ -19,26 +13,6 @@ double qexp( double u, double lambda ){
   
   return u;
 }
-
-
-// Simulate samples
-
-// // [[Rcpp::export]]
-// arma::vec rexp( unsigned int n, double lambda, const unsigned int& seed ){
-//   
-//   arma::vec u(n);
-//   
-//   // Generate a vector of uniform random variables
-//   // std::srand(seed);
-//   std::mt19937_64 engine(seed);  // Mersenne twister random number engine
-//   std::uniform_real_distribution<double> distr(0.0, 1.0);
-//   u.imbue( [&]() { return distr(engine); } );
-//   
-//   // Transform into Dagum random variables
-//   qexp(u,lambda);
-//   
-//   return u;
-// }
 
 // [[Rcpp::export]]
 arma::vec test_sitmo(unsigned int n, double lambda, arma::vec seeds){ 
