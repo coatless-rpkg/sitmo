@@ -1,4 +1,4 @@
-//  Copyright (c) 2012-2013 M.A. (Thijs) van den Berg, http://sitmo.com/
+//  Copyright (c) 2012-2016 M.A. (Thijs) van den Berg, http://sitmo.com/
 //
 //  Use, modification and distribution are subject to the MIT Software License. 
 //  
@@ -93,11 +93,14 @@ public:
   // req: 26.5.1.3 Uniform random number generator requirements, p.906, table 116, row 1
   typedef uint32_t result_type;
   
-  // req: 26.5.1.3 Uniform random number generator requirements, p.906, table 116, row 3
+  // req: 26.5.1.3 Uniform random number generator requirements, p.906, table 116, row 3 & 4
+#if __cplusplus <= 199711L
+  static result_type (min)() { return 0; }
+  static result_type (max)() { return 0xFFFFFFFF; }
+#else
   static constexpr result_type (min)() { return 0; }
-  
-  // req: 26.5.1.3 Uniform random number generator requirements, p.906, table 116, row 4
   static constexpr result_type (max)() { return 0xFFFFFFFF; }
+#endif    
   
   // -------------------------------------------------
   // Constructors

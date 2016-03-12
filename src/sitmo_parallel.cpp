@@ -1,5 +1,4 @@
 #include <Rcpp.h>
-#include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 
 #ifdef _OPENMP

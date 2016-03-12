@@ -30,14 +30,13 @@ To use `sitmo` in your R package, modify the `DESCRIPTION` file by adding:
     Imports:
         Rcpp (>= 0.12.3)
 
-Add the following to your `Makevars` and `Makevars.win` file to enable C++11:
+To use C++11's statistical distributions, you **may** want to add the following to your `src/Makevars` and `src/Makevars.win` file:
 
     CXX_STD = CXX11
 
 Within the `C++` file, then add:
 
 ``` cpp
-#include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 ```
 

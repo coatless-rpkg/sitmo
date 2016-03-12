@@ -13,7 +13,7 @@ Within this vignette, details on how to use [sitmo](http://www.sitmo.com/article
 
 # What is `sitmo` and can I eat it? 
 
-`sitmo` is a Parallel Psuedo Random Number Generator (PPRNG). Support for `sitmo` exists for both C++ standards: C++98 and C++11. This package, however, only provides support for the C++11 use of SITMO due to the necessity to include `constexpr` to satisfy the clang on OS X. Furthermore, there are many different PPRNGs that are available: [trng](http://numbercrunch.de/trng/), [SPRNG](http://www.sprng.org/),  [RngStreams](http://statmath.wu.ac.at/software/RngStreams/doc/rngstreams.html),
+`sitmo` is a Parallel Psuedo Random Number Generator (PPRNG). Support for `sitmo` exists for both C++ standards: C++98 and C++11. Furthermore, there are many different PPRNGs that are available: [trng](http://numbercrunch.de/trng/), [SPRNG](http://www.sprng.org/),  [RngStreams](http://statmath.wu.ac.at/software/RngStreams/doc/rngstreams.html),
 [OMPRNG](http://homepage.stat.uiowa.edu/~mbognar/omprng/). However, none are as appealing in my eyes than [sitmo](http://www.sitmo.com/article/parallel-random-number-generator-in-c/), which provides a straight forward interface to generating psuedo-random numbers (RNG), the least restrictive license (MIT), and speed. 
 
 # Accessing and using `sitmo`
@@ -24,14 +24,13 @@ The `sitmo` header file is contained within this package. To use the `sitmo` hea
     Imports:
         Rcpp (>= 0.12.3)
 
-Add the following to your `Makevars` and `Makevars.win` file to enable C++11:
+To use C++11's statistical distributions, you **may** want to add the following to your `src/Makevars` and `src/Makevars.win` file:
 
     CXX_STD = CXX11
 
 Within the `C++` file, then add:
 
 ```{r eval = F, engine='Rcpp'}
-#include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 ```
 
@@ -86,7 +85,6 @@ The examples displayed in the vignette are taken directly from the project's `sr
 Below is the most rudimentary example using `sitmo`. It describes the process of creating a `sitmo` engine and obtaining a draw. 
 
 ```{r engine='Rcpp', eval = F}
-#include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 
 //' Example RNG Draws with sitmo
@@ -121,7 +119,6 @@ Here the ability for a seed to be set is used.
 
 
 ```{r engine='Rcpp', eval = F}
-#include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 
 //' Example Seed Set and RNG Draws with sitmo
@@ -163,7 +160,6 @@ Rcpp::NumericVector sitmo_engine_seed(unsigned int n, unsigned int seed) {
 The code used here can be found to work when the initial state of the engine needs to be reverted. 
 
 ```{r engine='Rcpp', eval = F}
-#include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 
 //' Example Seed Set and RNG Draws with sitmo
@@ -210,7 +206,6 @@ Rcpp::NumericMatrix sitmo_engine_reset(unsigned int n, unsigned int seed) {
 This example displays the ability of `sitmo` to handle parallel streams of rng when a predefined number of streams is known.
 
 ```{r engine='Rcpp',eval = F}
-#include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 
 //' Two RNG engines running side-by-side
@@ -290,7 +285,6 @@ With this being said, let's take a look at an example parallelization using `sit
 
 ```{r engine='Rcpp', eval = F}
 #include <Rcpp.h>
-#include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 
 #ifdef _OPENMP
