@@ -2,12 +2,12 @@ Package: sitmo
 Title: SITMO Parallelized Random Number Generator (PRNG) Library for OpenMP/MPI
     Computing with R
 Version: 1.0.0
-Authors@R: personList(person("James", "Balamuta", email = "balamut2@illinois.edu", role = c("aut", "cre")),
+Authors@R: personList(person("James", "Balamuta", email = "balamut2@illinois.edu", role = c("aut", "cre","cph")),
                       person("Thijs", "van den Berg", email = "thijs@sitmo.com", role = c("cph")))
 Description: Provides the header files for the SITMO Parallelized Random Number
-    Generator (PRNG) Library along with an example.
+    Generator (PRNG) Library. Furthermore, the package contains example implementations and an accompanying vignette.
 Depends:
-    R (>= 3.2.3)
+    R (>= 3.2.4)
 License: MIT + file LICENSE
 LazyData: true
 LinkingTo: Rcpp
