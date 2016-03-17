@@ -1,5 +1,5 @@
 Package: sitmo
-Title: SITMO Parallelized Psuedo Random Number Generator (PPRNG) Library
+Title: Parallelized Psuedo Random Number Generator (PPRNG) SITMO Header Files
 Version: 1.0.0
 Authors@R: c(person("James", "Balamuta", email = "balamut2@illinois.edu", role = c("aut", "cre")),
                       person("Thijs","van den Berg", email = "thijs@sitmo.com", role = c("aut")))
