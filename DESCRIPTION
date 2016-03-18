@@ -18,6 +18,8 @@ LinkingTo: Rcpp
 Imports:
     Rcpp (>= 0.12.3)
 RoxygenNote: 5.0.1
-Suggests: knitr,
-    rmarkdown
+Suggests: 
+    knitr,
+    rmarkdown,
+    ggplot2
 VignetteBuilder: knitr

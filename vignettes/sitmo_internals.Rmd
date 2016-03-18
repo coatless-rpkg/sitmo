@@ -251,6 +251,44 @@ Rcpp::NumericMatrix sitmo_two_seeds(unsigned int n, Rcpp::NumericVector seeds) {
 }
 ```
 
+### Uniform Random Number Generator
+
+Under C++98, one does not have access to the C++11 implementation of the Uniform distribution. This is particularly problematic as a lot of the distribution RNG rely upon being able to sample from $\left[0,1\right]$ ala the Probability Integral Transformation Theorem. Additional details are discussed in a separate vignette ("Making a Uniform PRNG with sitmo").
+
+```{r engine='Rcpp', eval = F}
+//' Random Uniform Number Generator with sitmo
+//' 
+//' The function provides an implementation of sampling from a random uniform distribution
+//' 
+//' @param n    An \code{unsigned integer} denoting the number of realizations to generate.
+//' @param min  A \code{double} indicating the minimum \eqn{a} value 
+//'               in the uniform's interval \eqn{\left[a,b\right]}
+//' @param max  A \code{double} indicating the maximum \eqn{b} value 
+//'               in the uniform's interval \eqn{\left[a,b\right]}
+//' @param seed A special \code{unsigned integer} containing a single seed.
+//' @return A \code{vec} containing the realizations.
+//' @export
+//' @examples
+//' a = runif_sitmo(10)
+// [[Rcpp::export]]
+Rcpp::NumericVector runif_sitmo(unsigned int n, double min = 0.0, double max = 1.0, uint32_t seed = 1) {
+  Rcpp::NumericVector o(n);
+  
+  // Create a prng engine
+  sitmo::prng_engine eng(seed);
+  // Obtain the range between max and min
+  double dis = max - min; 
+  
+  for(int i = 0; i < n; ++i) {
+    // Sample from the RNG and divide it by the maximum value possible (can also use SITMO_RAND_MAX, which is 4294967295)
+    // Apply appropriate scale (MAX-MIN)
+    o[i] = min + ((double) eng() / (sitmo::prng_engine::max())) * (dis);
+  }
+  
+  return o;
+}
+```
+
 ### OpenMP Example
 
 One of the primary reasons why `sitmo` is desirable is because it can be used under parallelization via OpenMP and MPI. Below is an example where it is used in a parallel setting to generate numbers. Note, to ensure that code works cross-platform, please protect against OpenMP includes as the package will otherwise fail on OS X. 
