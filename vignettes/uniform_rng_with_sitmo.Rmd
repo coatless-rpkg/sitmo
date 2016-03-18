@@ -78,6 +78,8 @@ The basics of creating a random uniform distribution are as follows:
 
 \[a + \frac{R}{{MAX\left( R \right)}}\left( {b - a} \right)\]
 
+The implementation of this using sitmo is given as follows:
+
 ```{r unif, eval = F, engine='Rcpp'}
 //' Random Uniform Number Generator with sitmo
 //' 
