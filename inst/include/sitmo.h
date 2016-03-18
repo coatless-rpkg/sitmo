@@ -42,6 +42,8 @@ typedef unsigned __int64 uint64_t;  // Visual Studio 6.0(VC6) and newer..
 typedef unsigned __int32 uint32_t;
 #endif
 
+#define SITMO_RAND_MAX sitmo::prng_engine::max()
+
 // Double mixing function
 #define MIX2(x0,x1,rx,z0,z1,rz)    \
 x0 += x1;                          \

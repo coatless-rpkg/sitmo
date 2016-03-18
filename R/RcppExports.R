@@ -105,3 +105,38 @@ sitmo_parallel <- function(n, seeds) {
     .Call('sitmo_sitmo_parallel', PACKAGE = 'sitmo', n, seeds)
 }
 
+#' Random Uniform Number Generator with sitmo
+#' 
+#' The function provides an implementation of sampling from a random uniform distribution
+#' 
+#' @param n    An \code{unsigned integer} denoting the number of realizations to generate.
+#' @param min  A \code{double} indicating the minimum \eqn{a} value 
+#'               in the uniform's interval \eqn{\left[a,b\right]}
+#' @param max  A \code{double} indicating the maximum \eqn{b} value 
+#'               in the uniform's interval \eqn{\left[a,b\right]}
+#' @param seed A special \code{unsigned integer} containing a single seed.
+#' @return A \code{vec} containing the realizations.
+#' @export
+#' @examples
+#' a = runif_sitmo(10)
+runif_sitmo <- function(n, min = 0.0, max = 1.0, seed = 1L) {
+    .Call('sitmo_runif_sitmo', PACKAGE = 'sitmo', n, min, max, seed)
+}
+
+#' Random Uniform Number Generator using base R
+#' 
+#' The function provides an alternative implementation of random uniform distribution
+#' sampling using R's rng scope. 
+#' @param n    An \code{unsigned integer} denoting the number of realizations to generate.
+#' @param min  A \code{double} indicating the minimum \eqn{a} value 
+#'               in the uniform's interval \eqn{\left[a,b\right]}
+#' @param max  A \code{double} indicating the maximum \eqn{b} value 
+#'               in the uniform's interval \eqn{\left[a,b\right]}
+#' @export
+#' @examples
+#' set.seed(134)
+#' b = runif_r(10)
+runif_r <- function(n, min = 0.0, max = 1.0) {
+    .Call('sitmo_runif_r', PACKAGE = 'sitmo', n, min, max)
+}
+

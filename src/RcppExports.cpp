@@ -65,3 +65,30 @@ BEGIN_RCPP
     return __result;
 END_RCPP
 }
+// runif_sitmo
+Rcpp::NumericVector runif_sitmo(unsigned int n, double min, double max, uint32_t seed);
+RcppExport SEXP sitmo_runif_sitmo(SEXP nSEXP, SEXP minSEXP, SEXP maxSEXP, SEXP seedSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< unsigned int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< double >::type min(minSEXP);
+    Rcpp::traits::input_parameter< double >::type max(maxSEXP);
+    Rcpp::traits::input_parameter< uint32_t >::type seed(seedSEXP);
+    __result = Rcpp::wrap(runif_sitmo(n, min, max, seed));
+    return __result;
+END_RCPP
+}
+// runif_r
+Rcpp::NumericVector runif_r(unsigned int n, double min, double max);
+RcppExport SEXP sitmo_runif_r(SEXP nSEXP, SEXP minSEXP, SEXP maxSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject __result;
+    Rcpp::RNGScope __rngScope;
+    Rcpp::traits::input_parameter< unsigned int >::type n(nSEXP);
+    Rcpp::traits::input_parameter< double >::type min(minSEXP);
+    Rcpp::traits::input_parameter< double >::type max(maxSEXP);
+    __result = Rcpp::wrap(runif_r(n, min, max));
+    return __result;
+END_RCPP
+}
