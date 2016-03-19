@@ -4,7 +4,7 @@ author: "James Balamuta"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Making a Uniform PRNG with sitmo}
+  %\VignetteIndexEntry{Making a Uniform PRNG with `sitmo`}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -81,6 +81,9 @@ The basics of creating a random uniform distribution are as follows:
 The implementation of this using sitmo is given as follows:
 
 ```{r unif, eval = F, engine='Rcpp'}
+#include <Rcpp.h>
+#include <sitmo.h>
+
 //' Random Uniform Number Generator with sitmo
 //' 
 //' The function provides an implementation of sampling from a random uniform distribution
@@ -152,7 +155,7 @@ We can visualize the data by using a correlation graph. In this case, the genera
 
 ```{r corr_plot, fig.width = 7, fig.height = 4}
 # Create Correlation Plot
-ggplot(cppdf) + geom_tile(aes(x = s1, y = s2, fill=cor)) +
+ggplot(cppdf) + geom_tile(aes(x = s1, y = s2, fill = cor)) +
   xlab("Seed 1") + ylab("Seed 2") + 
   ggtitle("Correlations between seed realizations using `sitmo`")
 ```
