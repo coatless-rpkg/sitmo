@@ -1,13 +1,13 @@
 Package: sitmo
 Title: Parallel Pseudo Random Number Generator (PPRNG) 'sitmo' Header Files
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: c(person("James", "Balamuta", email = "balamut2@illinois.edu", role = c("aut", "cre")),
                       person("Thijs","van den Berg", email = "thijs@sitmo.com", role = c("aut")))
 Description: Provided within is a high quality and fast PPRNG that is able to be used in an 'OpenMP' parallel
     environment compiled under either C++98 or C++11. The objective of this package release is to consolidate
     the distribution of the 'sitmo' library on CRAN by enabling others to link to the 'sitmo' header file instead 
     of including a copy of 'sitmo' within their individual package. Lastly, the package contains example 
-    implementations using 'sitmo' and two accompanying vignette that provide additional information.
+    implementations using 'sitmo' and three accompanying vignette that provide additional information.
 Depends:
     R (>= 3.2.4)
 URL: https://github.com/coatless/sitmo, http://www.sitmo.com/article/parallel-random-number-generator-in-c/

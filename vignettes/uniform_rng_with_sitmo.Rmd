@@ -28,7 +28,7 @@ Given any random variable **X**, define $U = F_X\left({x}\right)$. Then:
 \[\begin{align*}
 F_U\left({u}\right) &= P\left( {U \le u} \right) \\
    &= P\left( {{F_X}\left( x \right) \le u} \right) \\
-   &= P\left( {U \le F_X^{ - 1}\left( u \right)} \right) \\
+   &= P\left( {X \le F_X^{ - 1}\left( u \right)} \right) \\
    &= {F_X}\left( {F_X^{ - 1}\left( u \right)} \right) \\
    &= u \\ 
 \end{align*} \]
@@ -72,7 +72,7 @@ The basics of creating a random uniform distribution are as follows:
 
 1. The generation of random numbers $R$ (e.g. 18885, 23945734, 4298034852, and so on)
 2. The known maximum/ceiling of the random number generation $\max\left(R\right)$ (e.g. `sitmo::prng_engine::max()` or `SITMO_RAND_MAX`) 
-3. The ability to scale the randomly generated number between $U[a,b]$.
+3. The ability to scale the randomly generated number between $[a,b]$.
 
 `sitmo` provides a high quality version of 1. as shown informally in the next section and a means of acquiring 2. Thus, one is only left with creating the correct scaling equation. In particular, this equation is governed by:
 
