@@ -1,9 +1,9 @@
 ---
-title: "SITMO's BigCrush Results"
+title: "`sitmo`'s BigCrush Results"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{SITMO's BigCrush Results}
+  %\VignetteIndexEntry{`sitmo`'s BigCrush Results}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

@@ -1,9 +1,9 @@
 ---
-title: "Deployment of SITMO within C++ Code"
+title: "Deployment of `sitmo` within C++ Code"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Deployment of SITMO within C++ Code}
+  %\VignetteIndexEntry{Deployment of `sitmo` within C++ Code}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
