@@ -19,7 +19,7 @@ Many of the random number generators for various distributions rely on the Proba
 
 **Theorem**
 
-Let $X$ be a random variable that has a cumulative distribution function (CDF) of $F_X\left({x}\right)$. Then, define random variable $U = F_X\left({x}\right)$. Thus, $U$ is a uniform distribution.
+Let $X$ be a random variable that has a cumulative distribution function (CDF) of $F_X\left({x}\right)$. Then, define random variable $U = F_X\left({X}\right)$. Thus, $U$ is a uniform distribution.
 
 **Proof**
 
@@ -27,7 +27,7 @@ Given any random variable **X**, define $U = F_X\left({x}\right)$. Then:
 
 \[\begin{align*}
 F_U\left({u}\right) &= P\left( {U \le u} \right) \\
-   &= P\left( {{F_X}\left( x \right) \le u} \right) \\
+   &= P\left( {{F_X}\left( X \right) \le u} \right) \\
    &= P\left( {X \le F_X^{ - 1}\left( u \right)} \right) \\
    &= {F_X}\left( {F_X^{ - 1}\left( u \right)} \right) \\
    &= u \\ 
@@ -136,12 +136,12 @@ n = 1e6
 nseeds = 30
 
 # Storage for seed number and the correlation of the realizations between generators. 
-cppdf = data.frame(s1=numeric(nseeds), s2=numeric(nseeds),
-                   cor=numeric(nseeds), stringsAsFactors = F)
+cppdf = data.frame(s1 = numeric(nseeds), s2 = numeric(nseeds),
+                   cor = numeric(nseeds), stringsAsFactors = F)
 
 # Generate observations under the seeds
 count = 0
-for(i in 1:nseeds){
+for(i in seq_len(nseeds)){
   for(j in i:nseeds){
     u1 = runif_sitmo(n, 0.0, 1.0, i)
     u2 = runif_sitmo(n, 0.0, 1.0, j)
@@ -157,7 +157,7 @@ We can visualize the data by using a correlation graph. In this case, the genera
 # Create Correlation Plot
 ggplot(cppdf) + geom_tile(aes(x = s1, y = s2, fill = cor)) +
   xlab("Seed 1") + ylab("Seed 2") + 
-  ggtitle("Correlations between seed realizations using `sitmo`")
+  ggtitle("Correlations between seed realizations using `sitmo`") + theme_bw()
 ```
 
 Observing the correlation graph, we note that the pattern predicted - only correlation on the diagonal - exists. Thus, the generation under these seeds are ideal. 

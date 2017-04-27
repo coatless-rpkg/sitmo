@@ -13,7 +13,7 @@ Within this vignette, details on how to use [sitmo](http://www.sitmo.com/article
 
 # What is `sitmo` and can I eat it? 
 
-`sitmo` is a Parallel Psuedo Random Number Generator (PPRNG) that was conceived by Thijs van den Berg after reading Salmon, K., et al.'s "Parallel Random Numbers: As Easy as 1, 2, 3" in the conference proceedings of the 2011 International Conference for High Performance Computing, Networking, Storage and Analysis. Support for `sitmo` exists for both C++ standards: C++98 and C++11. Furthermore, there are many different PPRNGs that are available: [trng](http://numbercrunch.de/trng/), [SPRNG](http://www.sprng.org/),  [RngStreams](http://statmath.wu.ac.at/software/RngStreams/doc/rngstreams.html),
+`sitmo` is a Parallel Psuedo Random Number Generator (PPRNG) that was conceived by Thijs van den Berg after reading Salmon, K., et al.'s "Parallel Random Numbers: As Easy as 1, 2, 3" in the conference proceedings of the 2011 International Conference for High Performance Computing, Networking, Storage and Analysis. Support for `sitmo` exists for both C++ standards: C++98 and C++11. Furthermore, there are many different PPRNGs that are available: [trng](https://www.numbercrunch.de/trng/), [SPRNG](http://www.sprng.org/),  [RngStreams](http://statmath.wu.ac.at/software/RngStreams/doc/rngstreams.html),
 [OMPRNG](http://homepage.stat.uiowa.edu/~mbognar/omprng/). However, none are as appealing in my eyes than [sitmo](http://www.sitmo.com/article/parallel-random-number-generator-in-c/), which provides a straight forward interface to generating psuedo-random numbers (RNG), the least restrictive license (MIT), and speed. 
 
 # Accessing and using `sitmo`
