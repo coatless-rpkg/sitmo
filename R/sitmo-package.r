@@ -1,7 +1,3 @@
-#' sitmo.
-#'
-#' @name sitmo
-#' @docType package
-#' @useDynLib sitmo
+#' @useDynLib sitmo, .registration=TRUE
 #' @importFrom Rcpp sourceCpp
-NULL
+"_PACKAGE"
