@@ -195,7 +195,7 @@ public:
   }
   
   // req: 26.5.1.4 Random number engine requirements, p.908 table 117, row 8
-  // Advances eâ€™s state ei to ei+1 = TA(ei) and returns GA(ei).
+  // Advances e’s state ei to ei+1 = TA(ei) and returns GA(ei).
   uint32_t operator()()
   {
     // can we return a value from the current block?
@@ -220,12 +220,13 @@ public:
   // -------------------------------------------------
   
   // req: 26.5.1.4 Random number engine requirements, p.908 table 117, row 9
-  // Advances eâ€™s state ei to ei+z by any means equivalent to z
+  // Advances e’s state ei to ei+z by any means equivalent to z
   // consecutive calls e().
   void discard(uint64_t z)
   {
     // check if we stay in the current block
-    if (z < 8 - _o_counter) {
+    // cast to unsigned int to prevent comparison warning
+    if (z < (uint64_t)(8 - _o_counter)) {
       _o_counter += static_cast<unsigned short>(z);
       return;
     }
