@@ -26,4 +26,3 @@ The function provides an implementation of sampling from a random uniform distri
 \examples{
 a = runif_sitmo(10)
 }
-

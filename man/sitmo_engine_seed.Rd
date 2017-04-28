@@ -26,4 +26,3 @@ c = sitmo_engine_seed(n, 1338)
 isTRUE(all.equal(a,b))
 isTRUE(all.equal(a,c))
 }
-

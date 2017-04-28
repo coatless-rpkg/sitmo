@@ -19,4 +19,3 @@ Shows a basic setup and use case for sitmo.
 n = 10
 a = sitmo_draws(n)
 }
-

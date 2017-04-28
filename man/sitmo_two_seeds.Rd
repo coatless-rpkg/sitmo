@@ -29,4 +29,3 @@ isTRUE(all.equal(b[,1],b[,2]))
 
 isTRUE(all.equal(a[,1],b[,1]))
 }
-

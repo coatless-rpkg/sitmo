@@ -36,4 +36,3 @@ isTRUE(all.equal(a,b))
 
 isTRUE(all.equal(b,c))
 }
-

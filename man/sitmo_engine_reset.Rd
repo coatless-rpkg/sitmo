@@ -23,4 +23,3 @@ a = sitmo_engine_reset(n, 1337)
 
 isTRUE(all.equal(a[,1],a[,2]))
 }
-

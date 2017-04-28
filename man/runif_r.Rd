@@ -23,4 +23,3 @@ sampling using R's rng scope.
 set.seed(134)
 b = runif_r(10)
 }
-
