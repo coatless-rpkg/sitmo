@@ -1,35 +1,20 @@
 ## Test environments
-* local OS X install, R 3.2.4
-* ubuntu 12.04 (on travis-ci), R 3.2.4
+
+* local OS X install, R 3.4.0
+* ubuntu 12.04 (on travis-ci), R 3.4.0
 * win-builder (devel and release)
 
 ## R CMD check results
 
 0 errors | 0 warnings | 1 note
 
-New submission
-
-License components with restrictions and base license permitting such:
-  MIT + file LICENSE
-File 'LICENSE':
-  YEAR: 2016
-  COPYRIGHT HOLDER: Thijs van den Berg, James Balamuta
+We have one note regarding misspellings in the description:
 
 Possibly mis-spelled words in DESCRIPTION:
   CRAN (9:48)
-  PPRNG (2:53, 7:57)
+  PPRNG (2:49, 7:57)
 
-Found the following (possibly) invalid URLs:
-  URL: https://cran.r-project.org/package=sitmo
-    From: README.md
-    Status: 404
-    Message: Not Found
-    
-* This is a new release.
-* The CRAN url has yet to be created, which is causing the 404.
-* Fixed the previous submit issues
-    * Misspelled title
-* Non-issue: PPRNG as it is an acronym 
+Both of these terms are acronyms and are spelled correctly.
 
 ## Reverse dependencies
 
