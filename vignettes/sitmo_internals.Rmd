@@ -22,7 +22,7 @@ The `sitmo` header file is contained within this package. To use the `sitmo` hea
 
     LinkingTo: Rcpp, sitmo
     Imports:
-        Rcpp (>= 0.12.3)
+        Rcpp (>= 0.12.10)
 
 To use C++11's statistical distributions, you **may** want to add the following to your `src/Makevars` and `src/Makevars.win` file:
 
