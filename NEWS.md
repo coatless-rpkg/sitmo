@@ -1,3 +1,18 @@
+# sitmo 1.2.0
+
+## CHANGES
+
+- Added plugin registration for `Rcpp:::Rcpp.plugin.maker()` (#3)
+- Added `cxx_flags()` and `sitmo_cxx_flags()` functions to display `CXX_FLAGS`
+  required by `sitmo`. (#3)
+
+## BUGFIX
+
+- Corrected a signed and unsigned integer comparison in 
+  "Making a Uniform PRNG with `sitmo`" vignette.
+- Fixed notation in "Making a Uniform PRNG with `sitmo`" vignette.
+
+
 # sitmo 1.1.0
 
 ## CHANGES
