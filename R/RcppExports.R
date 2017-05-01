@@ -115,7 +115,7 @@ sitmo_parallel <- function(n, seeds) {
 #' @param max  A \code{double} indicating the maximum \eqn{b} value 
 #'               in the uniform's interval \eqn{\left[a,b\right]}
 #' @param seed A special \code{unsigned integer} containing a single seed.
-#' @return A \code{vec} containing the realizations.
+#' @return A \code{numeric vector} containing the realizations.
 #' @export
 #' @examples
 #' a = runif_sitmo(10)

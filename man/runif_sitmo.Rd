@@ -18,7 +18,7 @@ in the uniform's interval \eqn{\left[a,b\right]}}
 \item{seed}{A special \code{unsigned integer} containing a single seed.}
 }
 \value{
-A \code{vec} containing the realizations.
+A \code{numeric vector} containing the realizations.
 }
 \description{
 The function provides an implementation of sampling from a random uniform distribution
