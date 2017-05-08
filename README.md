@@ -6,8 +6,8 @@ SITMO for R
 
 The repository houses the `sitmo` R package for Parallel Psuedo Random Number Generation (PPRNG). The package provides a way to obtain the `sitmo` header files via **LinkTo**.
 
-Installing & Using `sitmo`
-==========================
+Installing `sitmo`
+------------------
 
 `sitmo` is currently only available on GitHub, but should also be available on CRAN shortly. To install the package, you must first have a compiler on your system that is compatible with R.
 
@@ -24,6 +24,54 @@ install.packages("devtools")
 devtools::install_github("coatless/sitmo")
 ```
 
+Using `sitmo`
+-------------
+
+There are two ways to use `sitmo`. The first is to use `sitmo` in a standalone script. The script is typically built using `sourceCpp()`. The second approach allows for `sitmo` to be used within an R package.
+
+### Standalone file usage
+
+Within the `C++` file, the `sitmo` package provides an Rcpp plugins' depends statement that must be included after `sitmo.h` header. This plugin statement indicates that a dependency is `sitmo`.
+
+``` cpp
+#include <rgen.h> 
+// [[Rcpp::depends(sitmo)]]
+```
+
+Below is a hello world example meant to show a basic implementation of `sitmo`.
+
+``` cpp
+#include <Rcpp.h>
+#include <random>  // C++11 RNG library
+#include <sitmo.h> // SITMO PPRNG
+
+// Rcpp depends attribute is required for standalone use. 
+// It is not needed if in package linking to the sitmo package (detailed next).
+// [[Rcpp::depends(sitmo)]]
+
+// [[Rcpp::export]]
+Rcpp::NumericVector sitmo_draws_ex(unsigned int n) {
+  
+  Rcpp::NumericVector o(n);
+  
+  // Create a prng engine
+  sitmo::prng_engine eng;
+  
+  // Draw from base engine
+  for (unsigned int i=0; i< n ; ++i){
+    o(i) = eng();  
+  }
+
+  return o;
+}
+
+/*** R
+sitmo_draws_ex(5)
+*/
+```
+
+### Package usage
+
 To use `sitmo` in your R package, modify the `DESCRIPTION` file by adding:
 
     LinkingTo: Rcpp, sitmo
@@ -38,31 +86,4 @@ Within the `C++` file, then add:
 
 ``` cpp
 #include <sitmo.h> // SITMO PPRNG
-```
-
-Example use
-===========
-
-Below is a hello world example meant to show a basic implementation of `sitmo`.
-
-``` cpp
-#include <Rcpp.h>
-#include <random>  // C++11 RNG library
-#include <sitmo.h> // SITMO PPRNG
-
-// [[Rcpp::export]]
-Rcpp::NumericVector sitmo_draws(unsigned int n) {
-  
-  Rcpp::NumericVector o(n);
-  
-  // Create a prng engine
-  sitmo::prng_engine eng;
-  
-  // Draw from base engine
-  for (unsigned int i=0; i< n ; ++i){
-    o(i) = eng();  
-  }
-
-  return o;
-}
 ```

@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 The repository houses the `sitmo` R package for Parallel Psuedo Random Number Generation (PPRNG). The package provides a way to obtain the `sitmo` header files via **LinkTo**.
 
-# Installing & Using `sitmo`
+## Installing `sitmo`
 
 `sitmo` is currently only available on GitHub, but should also be available on CRAN shortly. To install the package, you must first have a compiler on your system that is compatible with R.
 
@@ -38,34 +38,38 @@ install.packages("devtools")
 devtools::install_github("coatless/sitmo")
 ```
 
-To use `sitmo` in your R package, modify the `DESCRIPTION` file by adding:
 
-    LinkingTo: Rcpp, sitmo
-    Imports:
-        Rcpp (>= 0.12.10)
 
-To use C++11's statistical distributions, you **may** want to add the following to your `src/Makevars` and `src/Makevars.win` file:
+## Using `sitmo`
 
-    CXX_STD = CXX11
+There are two ways to use `sitmo`. The first is to use `sitmo` in a standalone
+script. The script is typically built using `sourceCpp()`. The second approach
+allows for `sitmo` to be used within an R package.
 
-Within the `C++` file, then add:
+### Standalone file usage
 
-```{r eval = F, engine='Rcpp'}
-#include <sitmo.h> // SITMO PPRNG
+Within the `C++` file, the `sitmo` package provides an Rcpp plugins' 
+depends statement that must be included after `sitmo.h` header. This plugin
+statement indicates that a dependency is `sitmo`.
+
+```cpp
+#include <rgen.h> 
+// [[Rcpp::depends(sitmo)]]
 ```
-
-
-# Example use
 
 Below is a hello world example meant to show a basic implementation of `sitmo`.
 
-```{r eval = F, engine='Rcpp'}
+```cpp
 #include <Rcpp.h>
 #include <random>  // C++11 RNG library
 #include <sitmo.h> // SITMO PPRNG
 
+// Rcpp depends attribute is required for standalone use. 
+// It is not needed if in package linking to the sitmo package (detailed next).
+// [[Rcpp::depends(sitmo)]]
+
 // [[Rcpp::export]]
-Rcpp::NumericVector sitmo_draws(unsigned int n) {
+Rcpp::NumericVector sitmo_draws_ex(unsigned int n) {
   
   Rcpp::NumericVector o(n);
   
@@ -79,5 +83,28 @@ Rcpp::NumericVector sitmo_draws(unsigned int n) {
 
   return o;
 }
+
+/*** R
+sitmo_draws_ex(5)
+*/
 ```
 
+### Package usage
+
+
+To use `sitmo` in your R package, modify the `DESCRIPTION` file by adding:
+
+    LinkingTo: Rcpp, sitmo
+    Imports:
+        Rcpp (>= 0.12.10)
+
+To use C++11's statistical distributions, you **may** want to add the 
+following to your `src/Makevars` and `src/Makevars.win` file:
+
+    CXX_STD = CXX11
+
+Within the `C++` file, then add:
+
+```cpp
+#include <sitmo.h> // SITMO PPRNG
+```

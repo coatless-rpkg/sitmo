@@ -5,6 +5,8 @@
 - Added plugin registration for `Rcpp:::Rcpp.plugin.maker()` (#3)
 - Added `cxx_flags()` and `sitmo_cxx_flags()` functions to display `CXX_FLAGS`
   required by `sitmo`. (#3)
+- Updated examples in README.Rmd and SITMO internal vignette to 
+  use the Rcpp depends attribute. (#3)
 
 ## BUGFIX
 

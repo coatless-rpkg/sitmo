@@ -9,16 +9,33 @@ vignette: >
 ---
 
 
-Within this vignette, details on how to use [sitmo](http://www.sitmo.com/article/parallel-random-number-generator-in-c/)'s header will be detailed. First, the background on `sitmo` will be provided Secondly, function calls will be shown alongside of a description. Thirdly, examples will be provided of how one can use the `sitmo` header.  
+Within this vignette, details on how to use [sitmo](http://www.sitmo.com/article/parallel-random-number-generator-in-c/)'s
+header will be detailed. First, the background on `sitmo` will be provided.
+Secondly, function calls will be shown alongside of a description. 
+Thirdly, examples will be provided of how one can use the `sitmo` header.  
 
 # What is `sitmo` and can I eat it? 
 
-`sitmo` is a Parallel Psuedo Random Number Generator (PPRNG) that was conceived by Thijs van den Berg after reading Salmon, K., et al.'s "Parallel Random Numbers: As Easy as 1, 2, 3" in the conference proceedings of the 2011 International Conference for High Performance Computing, Networking, Storage and Analysis. Support for `sitmo` exists for both C++ standards: C++98 and C++11. Furthermore, there are many different PPRNGs that are available: [trng](https://www.numbercrunch.de/trng/), [SPRNG](http://www.sprng.org/),  [RngStreams](http://statmath.wu.ac.at/software/RngStreams/doc/rngstreams.html),
-[OMPRNG](http://homepage.stat.uiowa.edu/~mbognar/omprng/). However, none are as appealing in my eyes than [sitmo](http://www.sitmo.com/article/parallel-random-number-generator-in-c/), which provides a straight forward interface to generating psuedo-random numbers (RNG), the least restrictive license (MIT), and speed. 
+`sitmo` is a Parallel Psuedo Random Number Generator (PPRNG) that was conceived
+by Thijs van den Berg after reading 
+Salmon, K., et al.'s "Parallel Random Numbers: As Easy as 1, 2, 3" in the
+conference proceedings of the 2011 International Conference for
+High Performance Computing, Networking, Storage and Analysis.
+Support for `sitmo` exists for both C++ standards: C++98 and C++11.
+Furthermore, there are many different PPRNGs that are available:
+[trng](https://www.numbercrunch.de/trng/), 
+[SPRNG](http://www.sprng.org/), 
+[RngStreams](http://statmath.wu.ac.at/software/RngStreams/doc/rngstreams.html),
+[OMPRNG](http://homepage.stat.uiowa.edu/~mbognar/omprng/). However, none are as
+appealing in my eyes than [sitmo](http://www.sitmo.com/article/parallel-random-number-generator-in-c/), 
+which provides a straight forward interface to generating psuedo-random numbers
+(RNG), the least restrictive license (MIT), and speed. 
 
 # Accessing and using `sitmo`
 
-The `sitmo` header file is contained within this package. To use the `sitmo` header within your own package, you can link to this package within your description file. e.g.
+The `sitmo` header file is contained within this package.
+To use the `sitmo` header within your own package, you can link to this 
+package within your description file. e.g.
 
     LinkingTo: Rcpp, sitmo
     Imports:
@@ -34,11 +51,13 @@ Within the `C++` file, then add:
 #include <sitmo.h> // SITMO PPRNG
 ```
 
-Or you can do a direct embed in your application. I would advise for the prior though and, hence, the reason for this package. 
+Or you can do a direct embed in your application.
+I would advise for the prior though and, hence, the reason for this package. 
 
 Below is a breakdown of all functions that are available in the SITMO header file. 
 
 ## Construct an engine
+
 | Expression	                | Description
 |:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | prng_engine()	              | Creates an engine with a default initial state.                                                                                                                                                    | 
@@ -87,6 +106,8 @@ Below is the most rudimentary example using `sitmo`. It describes the process of
 ```{r engine='Rcpp', eval = F}
 #include <sitmo.h> // SITMO PPRNG
 
+// [[Rcpp::depends(sitmo)]]
+
 //' Example RNG Draws with sitmo
 //' 
 //' Shows a basic setup and use case for sitmo. 
@@ -120,6 +141,9 @@ Here the ability for a seed to be set is used.
 
 ```{r engine='Rcpp', eval = F}
 #include <sitmo.h> // SITMO PPRNG
+
+// [[Rcpp::depends(sitmo)]]
+
 
 //' Example Seed Set and RNG Draws with sitmo
 //' 
@@ -161,6 +185,8 @@ The code used here can be found to work when the initial state of the engine nee
 
 ```{r engine='Rcpp', eval = F}
 #include <sitmo.h> // SITMO PPRNG
+
+// [[Rcpp::depends(sitmo)]]
 
 //' Example Seed Set and RNG Draws with sitmo
 //' 
@@ -207,6 +233,9 @@ This example displays the ability of `sitmo` to handle parallel streams of rng w
 
 ```{r engine='Rcpp',eval = F}
 #include <sitmo.h> // SITMO PPRNG
+
+// [[Rcpp::depends(sitmo)]]
+
 
 //' Two RNG engines running side-by-side
 //' 
@@ -256,6 +285,10 @@ Rcpp::NumericMatrix sitmo_two_seeds(unsigned int n, Rcpp::NumericVector seeds) {
 Under C++98, one does not have access to the C++11 implementation of the Uniform distribution. This is particularly problematic as a lot of the distribution RNG rely upon being able to sample from $\left[0,1\right]$ ala the Probability Integral Transformation Theorem. Additional details are discussed in a separate vignette ("Making a Uniform PRNG with sitmo").
 
 ```{r engine='Rcpp', eval = F}
+#include <sitmo.h> // SITMO PPRNG
+
+// [[Rcpp::depends(sitmo)]]
+
 //' Random Uniform Number Generator with sitmo
 //' 
 //' The function provides an implementation of sampling from a random uniform distribution
@@ -325,9 +358,14 @@ With this being said, let's take a look at an example parallelization using `sit
 #include <Rcpp.h>
 #include <sitmo.h> // SITMO PPRNG
 
+// [[Rcpp::depends(sitmo)]]
+
 #ifdef _OPENMP
 #include <omp.h>
 #endif
+
+// [[Rcpp::plugins(openmp)]]
+
 
 //' Test Generation using sitmo and C++11
 //' 
