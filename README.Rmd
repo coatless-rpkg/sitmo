@@ -23,7 +23,27 @@ The repository houses the `sitmo` R package for Parallel Psuedo Random Number Ge
 
 ## Installing `sitmo`
 
-`sitmo` is currently only available on GitHub, but should also be available on CRAN shortly. To install the package, you must first have a compiler on your system that is compatible with R.
+`sitmo` is available on both CRAN (Stable) and GitHub (Development). Using
+CRAN to download and install `sitmo` is the preferred option as it is significantly
+more stable vs. the GitHub version.
+
+### Stable (CRAN) Install Instructions
+
+To install the package from CRAN, you can simply type:
+
+```r
+install.packages("sitmo")
+```
+
+The package will be installed and available in a similar fashion to
+other R packages. The main exception to this note is that to use `sitmo` to
+create a package you will need to acquire a compiler. This is detailed under 
+the development install instructions.
+
+### Development Install Instructions
+
+To install the package, you must first have a compiler on your system that is
+compatible with R.
 
 For help on obtaining a compiler consult:
 
@@ -37,8 +57,6 @@ install.packages("devtools")
 
 devtools::install_github("coatless/sitmo")
 ```
-
-
 
 ## Using `sitmo`
 
