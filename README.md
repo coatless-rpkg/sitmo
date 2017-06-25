@@ -1,8 +1,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 [![Travis-CI Build Status](https://travis-ci.org/coatless/sitmo.svg?branch=master)](https://travis-ci.org/coatless/sitmo)[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/sitmo)](http://www.r-pkg.org/pkg/sitmo) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/sitmo)](https://cran.r-project.org/package=sitmo)
 
-SITMO for R
-===========
+`sitmo`: A header-only package for *R* containing the SITMO PPRNG
+=================================================================
 
 The repository houses the `sitmo` R package for Parallel Psuedo Random Number Generation (PPRNG). The package provides a way to obtain the `sitmo` header files via **LinkTo**.
 
@@ -27,7 +27,7 @@ To install the package, you must first have a compiler on your system that is co
 
 For help on obtaining a compiler consult:
 
--   [OS X](http://thecoatlessprofessor.com/programming/r-compiler-tools-for-rcpp-on-os-x/)
+-   [macOS](http://thecoatlessprofessor.com/programming/r-compiler-tools-for-rcpp-on-os-x/)
 -   [Windows](http://thecoatlessprofessor.com/programming/rcpp/install-rtools-for-rcpp/)
 
 With a compiler in hand, one can then install the package from GitHub by:
@@ -90,7 +90,7 @@ To use `sitmo` in your R package, modify the `DESCRIPTION` file by adding:
 
     LinkingTo: Rcpp, sitmo
     Imports:
-        Rcpp (>= 0.12.10)
+        Rcpp (>= 0.12.11)
 
 To use C++11's statistical distributions, you **may** want to add the following to your `src/Makevars` and `src/Makevars.win` file:
 

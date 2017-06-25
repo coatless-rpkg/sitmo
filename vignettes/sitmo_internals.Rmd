@@ -39,7 +39,7 @@ package within your description file. e.g.
 
     LinkingTo: Rcpp, sitmo
     Imports:
-        Rcpp (>= 0.12.10)
+        Rcpp (>= 0.12.11)
 
 To use C++11's statistical distributions, you **may** want to add the following to your `src/Makevars` and `src/Makevars.win` file:
 

@@ -16,13 +16,14 @@ implementations using 'sitmo' and three accompanying vignette that provide addit
 Useful links:
 \itemize{
   \item \url{https://github.com/coatless/sitmo}
+  \item \url{http://thecoatlessprofessor.com/projects/sitmo/}
   \item \url{https://www.sitmo.com/?p=1206}
   \item Report bugs at \url{https://github.com/coatless/sitmo/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: James Balamuta \email{balamut2@illinois.edu}
+\strong{Maintainer}: James Balamuta \email{balamut2@illinois.edu} [copyright holder]
 
 Authors:
 \itemize{
