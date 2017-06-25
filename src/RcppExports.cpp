@@ -92,3 +92,19 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+
+static const R_CallMethodDef CallEntries[] = {
+    {"sitmo_sitmo_draws", (DL_FUNC) &sitmo_sitmo_draws, 1},
+    {"sitmo_sitmo_engine_seed", (DL_FUNC) &sitmo_sitmo_engine_seed, 2},
+    {"sitmo_sitmo_engine_reset", (DL_FUNC) &sitmo_sitmo_engine_reset, 2},
+    {"sitmo_sitmo_two_seeds", (DL_FUNC) &sitmo_sitmo_two_seeds, 2},
+    {"sitmo_sitmo_parallel", (DL_FUNC) &sitmo_sitmo_parallel, 2},
+    {"sitmo_runif_sitmo", (DL_FUNC) &sitmo_runif_sitmo, 4},
+    {"sitmo_runif_r", (DL_FUNC) &sitmo_runif_r, 3},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_sitmo(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
+}
