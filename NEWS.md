@@ -3,6 +3,8 @@
 ## BUGFIXES
 
 - Removed extra ; in sitmo header to quiet compile warnings (#4, thanks @helske)
+- Updated `sitmo_two_seeds()` src and documentation in "Deployment of `sitmo` within C++ Code"
+  so that it uses the second seed for eng2 and returns an n x 2 matrix instead of n x 3. (#5, thanks @helske)
 
 # sitmo 1.2.0
 

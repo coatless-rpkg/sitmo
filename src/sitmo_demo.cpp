@@ -109,32 +109,32 @@ Rcpp::NumericMatrix sitmo_engine_reset(unsigned int n, unsigned int seed) {
 //' @export
 //' @examples
 //' n = 10
-//' a = sitmo_two_seeds(n, c(1337,1338))
+//' a = sitmo_two_seeds(n, c(1337, 1338))
 //' 
-//' b = sitmo_two_seeds(n, c(1337,1337))
+//' b = sitmo_two_seeds(n, c(1337, 1337))
 //' 
-//' isTRUE(all.equal(a[,1],a[,2]))
+//' isTRUE(all.equal(a[,1], a[,2]))
 //' 
-//' isTRUE(all.equal(b[,1],b[,2]))
+//' isTRUE(all.equal(b[,1], b[,2]))
 //' 
-//' isTRUE(all.equal(a[,1],b[,1]))
+//' isTRUE(all.equal(a[,1], b[,1]))
 // [[Rcpp::export]]
 Rcpp::NumericMatrix sitmo_two_seeds(unsigned int n, Rcpp::NumericVector seeds) {
   
   if(seeds.size() != 2) Rcpp::stop("Need exactly two seeds for this example.");
   
   // Create Rcpp Matrix
-  Rcpp::NumericMatrix o(n,3);
+  Rcpp::NumericMatrix o(n, 2);
   
   // Create a prng engine with a specific seed
   sitmo::prng_engine eng1;
   eng1.seed(seeds(0));
   
   sitmo::prng_engine eng2;
-  eng1.seed(seeds(1));
+  eng2.seed(seeds(1));
 
   // Draw from base engine
-  for (unsigned int i=0; i< n ; ++i){
+  for (unsigned int i = 0; i < n ; ++i){
     o(i,0) = eng1();      
     o(i,1) = eng2();        
   }  
