@@ -1,7 +1,7 @@
 ## Test environments
 
-* local OS X install, R 3.4.0
-* ubuntu 12.04 (on travis-ci), R 3.4.0
+* local OS X install, R 3.4.1
+* ubuntu 12.04 (on travis-ci), R 3.4.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -18,5 +18,9 @@ Both of these terms are acronyms and are spelled correctly.
 
 ## Reverse dependencies
 
-There are no reverse dependencies.
+There is one reverse dependency:
+
+- bssm
+
+This reverse dependency built cleanly.
 

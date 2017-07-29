@@ -1,4 +1,4 @@
-# sitmo 1.2.0.1001
+# sitmo 1.2.1
 
 ## BUGFIXES
 
