@@ -12,7 +12,7 @@
 #' n = 10
 #' a = sitmo_draws(n)
 sitmo_draws <- function(n) {
-    .Call(sitmo_sitmo_draws, n)
+    .Call(`_sitmo_sitmo_draws`, n)
 }
 
 #' Example Seed Set and RNG Draws with sitmo
@@ -32,7 +32,7 @@ sitmo_draws <- function(n) {
 #' isTRUE(all.equal(a,b))
 #' isTRUE(all.equal(a,c))
 sitmo_engine_seed <- function(n, seed) {
-    .Call(sitmo_sitmo_engine_seed, n, seed)
+    .Call(`_sitmo_sitmo_engine_seed`, n, seed)
 }
 
 #' Example Seed Set and RNG Draws with sitmo
@@ -49,7 +49,7 @@ sitmo_engine_seed <- function(n, seed) {
 #' 
 #' isTRUE(all.equal(a[,1],a[,2]))
 sitmo_engine_reset <- function(n, seed) {
-    .Call(sitmo_sitmo_engine_reset, n, seed)
+    .Call(`_sitmo_sitmo_engine_reset`, n, seed)
 }
 
 #' Two RNG engines running side-by-side
@@ -62,17 +62,17 @@ sitmo_engine_reset <- function(n, seed) {
 #' @export
 #' @examples
 #' n = 10
-#' a = sitmo_two_seeds(n, c(1337,1338))
+#' a = sitmo_two_seeds(n, c(1337, 1338))
 #' 
-#' b = sitmo_two_seeds(n, c(1337,1337))
+#' b = sitmo_two_seeds(n, c(1337, 1337))
 #' 
-#' isTRUE(all.equal(a[,1],a[,2]))
+#' isTRUE(all.equal(a[,1], a[,2]))
 #' 
-#' isTRUE(all.equal(b[,1],b[,2]))
+#' isTRUE(all.equal(b[,1], b[,2]))
 #' 
-#' isTRUE(all.equal(a[,1],b[,1]))
+#' isTRUE(all.equal(a[,1], b[,1]))
 sitmo_two_seeds <- function(n, seeds) {
-    .Call(sitmo_sitmo_two_seeds, n, seeds)
+    .Call(`_sitmo_sitmo_two_seeds`, n, seeds)
 }
 
 #' Test Generation using sitmo and C++11
@@ -102,7 +102,7 @@ sitmo_two_seeds <- function(n, seeds) {
 #' 
 #' isTRUE(all.equal(b,c))
 sitmo_parallel <- function(n, seeds) {
-    .Call(sitmo_sitmo_parallel, n, seeds)
+    .Call(`_sitmo_sitmo_parallel`, n, seeds)
 }
 
 #' Random Uniform Number Generator with sitmo
@@ -120,7 +120,7 @@ sitmo_parallel <- function(n, seeds) {
 #' @examples
 #' a = runif_sitmo(10)
 runif_sitmo <- function(n, min = 0.0, max = 1.0, seed = 1L) {
-    .Call(sitmo_runif_sitmo, n, min, max, seed)
+    .Call(`_sitmo_runif_sitmo`, n, min, max, seed)
 }
 
 #' Random Uniform Number Generator using base R
@@ -137,6 +137,6 @@ runif_sitmo <- function(n, min = 0.0, max = 1.0, seed = 1L) {
 #' set.seed(134)
 #' b = runif_r(10)
 runif_r <- function(n, min = 0.0, max = 1.0) {
-    .Call(sitmo_runif_r, n, min, max)
+    .Call(`_sitmo_runif_r`, n, min, max)
 }
 
