@@ -19,13 +19,13 @@ Shows how to create two separate RNGs and increase them together.
 }
 \examples{
 n = 10
-a = sitmo_two_seeds(n, c(1337,1338))
+a = sitmo_two_seeds(n, c(1337, 1338))
 
-b = sitmo_two_seeds(n, c(1337,1337))
+b = sitmo_two_seeds(n, c(1337, 1337))
 
-isTRUE(all.equal(a[,1],a[,2]))
+isTRUE(all.equal(a[,1], a[,2]))
 
-isTRUE(all.equal(b[,1],b[,2]))
+isTRUE(all.equal(b[,1], b[,2]))
 
-isTRUE(all.equal(a[,1],b[,1]))
+isTRUE(all.equal(a[,1], b[,1]))
 }
