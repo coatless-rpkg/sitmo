@@ -1,4 +1,5 @@
-inlineCxxPlugin = Rcpp:::Rcpp.plugin.maker(
+#' @importFrom Rcpp Rcpp.plugin.maker
+inlineCxxPlugin = Rcpp::Rcpp.plugin.maker(
   include.before = "#include <sitmo.h>", 
   package        = "sitmo"
 )
