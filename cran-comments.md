@@ -6,15 +6,7 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-We have one note regarding misspellings in the description:
-
-Possibly mis-spelled words in DESCRIPTION:
-  CRAN (9:48)
-  PPRNG (2:49, 7:57)
-
-Both of these terms are acronyms and are spelled correctly.
+0 errors | 0 warnings | 0 notes
 
 ## Reverse dependencies
 
