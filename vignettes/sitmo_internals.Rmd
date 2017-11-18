@@ -9,7 +9,7 @@ vignette: >
 ---
 
 
-Within this vignette, details on how to use [sitmo](http://www.sitmo.com/article/parallel-random-number-generator-in-c/)'s
+Within this vignette, details on how to use [sitmo](https://github.com/stdfin/random/)'s
 header will be detailed. First, the background on `sitmo` will be provided.
 Secondly, function calls will be shown alongside of a description. 
 Thirdly, examples will be provided of how one can use the `sitmo` header.  
@@ -27,7 +27,7 @@ Furthermore, there are many different PPRNGs that are available:
 [SPRNG](http://www.sprng.org/), 
 [RngStreams](http://statmath.wu.ac.at/software/RngStreams/doc/rngstreams.html),
 [OMPRNG](http://homepage.stat.uiowa.edu/~mbognar/omprng/). However, none are as
-appealing in my eyes than [sitmo](http://www.sitmo.com/article/parallel-random-number-generator-in-c/), 
+appealing in my eyes than [sitmo](https://github.com/stdfin/random/), 
 which provides a straight forward interface to generating psuedo-random numbers
 (RNG), the least restrictive license (MIT), and speed. 
 

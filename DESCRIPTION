@@ -10,13 +10,13 @@ Description: Provided within is a high quality and fast PPRNG that is able to be
     implementations using 'sitmo' and three accompanying vignette that provide additional information.
 Depends:
     R (>= 3.2.4)
-URL: https://github.com/coatless/sitmo, http://thecoatlessprofessor.com/projects/sitmo/, https://www.sitmo.com/?p=1206
+URL: https://github.com/coatless/sitmo, http://thecoatlessprofessor.com/projects/sitmo/, https://github.com/stdfin/random/
 BugReports: https://github.com/coatless/sitmo/issues
 License: MIT + file LICENSE
 LazyData: true
 LinkingTo: Rcpp
 Imports:
-    Rcpp (>= 0.12.11)
+    Rcpp (>= 0.12.13)
 RoxygenNote: 6.0.1
 Suggests: 
     knitr,

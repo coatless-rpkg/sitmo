@@ -1,9 +1,10 @@
 # sitmo 1.2.2
 
-## BUGFIX
+## BUGFIXES
 
 - Addressed import of `Rcpp.plugin.maker()` by using the _exported_ variable name,
   e.g. `::`, in place of the _internal_ variable name, e.g. `:::` (#7).
+- Updated `sitmo` URL to point to `stdfin/random` (#8).
 
 # sitmo 1.2.1
 

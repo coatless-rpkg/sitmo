@@ -17,7 +17,7 @@ Useful links:
 \itemize{
   \item \url{https://github.com/coatless/sitmo}
   \item \url{http://thecoatlessprofessor.com/projects/sitmo/}
-  \item \url{https://www.sitmo.com/?p=1206}
+  \item \url{https://github.com/stdfin/random/}
   \item Report bugs at \url{https://github.com/coatless/sitmo/issues}
 }
 
