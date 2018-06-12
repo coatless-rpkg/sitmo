@@ -7,8 +7,8 @@
  *
  */
 
-#ifndef STDFIN_RANDOM_THREEFRY_HPP
-#define STDFIN_RANDOM_THREEFRY_HPP
+#ifndef SITMO_RANDOM_THREEFRY_HPP
+#define SITMO_RANDOM_THREEFRY_HPP
 
 #include <istream>
 #include <algorithm>

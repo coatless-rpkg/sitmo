@@ -4,8 +4,8 @@
 // (See accompanying file LICENSE.txt)
 
 
-#ifndef STDFIN_RANDOM_VANDERCORPUT_HHP
-#define STDFIN_RANDOM_VANDERCORPUT_HHP 1
+#ifndef SITMO_RANDOM_VANDERCORPUT_HHP
+#define SITMO_RANDOM_VANDERCORPUT_HHP 1
 
 #include <limits>
 
