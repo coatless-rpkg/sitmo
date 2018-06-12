@@ -19,7 +19,7 @@
 #include <iostream>
 #include <iomanip>
 
-namespace stdfin {
+namespace sitmo {
 
 /**
 * @brief The threefry random engine is a counter based random engine that uses a 
@@ -575,6 +575,6 @@ typedef threefry_engine<uint64_t, 64, 20> threefry_20_64;
 
 typedef threefry_engine<uint32_t, 32, 13> threefry; // default
 
-} // namespace stdfin
+} // namespace sitmo
 
 #endif // STDFIN_RANDOM_THREEFRY_HPP

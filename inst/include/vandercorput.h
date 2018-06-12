@@ -9,7 +9,7 @@
 
 #include <limits>
 
-namespace stdfin {
+namespace sitmo {
 
     namespace detail {
 
@@ -246,5 +246,5 @@ typedef vandercorput_engine<uint_fast32_t, 2> vandercorput;
  */
  typedef vandercorput_engine<uint_fast64_t, 2> vandercorput_64;
 
-} // namespace stdfin
+} // namespace sitmo
 #endif
