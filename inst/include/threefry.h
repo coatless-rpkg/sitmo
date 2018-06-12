@@ -106,9 +106,9 @@ struct is_seed_sequence {
 };    
 }
 
-template <  typename UIntType,      // the return type
-            std::size_t w=32,       // number of bits in the return type
-            std::size_t r=20        // number of rounds
+template <  typename UIntType=uint32_t,  // the return type
+            std::size_t w=32,            // number of bits in the return type
+            std::size_t r=13             // number of rounds
 >
 class threefry_engine
 {
