@@ -41,14 +41,16 @@ package within your description file. e.g.
     Imports:
         Rcpp (>= 0.12.11)
 
-To use C++11's statistical distributions, you **may** want to add the following to your `src/Makevars` and `src/Makevars.win` file:
+To use C++11's statistical distributions, you **may** want to add the
+following to your `src/Makevars` and `src/Makevars.win` file:
 
     CXX_STD = CXX11
 
-Within the `C++` file, then add:
+Within a `C++` file in `src/`, then add:
 
-```{r eval = F, engine='Rcpp'}
-#include <sitmo.h> // SITMO PPRNG
+```{Rcpp, eval = FALSE}
+#include <Rcpp.h>
+#include <sitmo.h>      // SITMO for C++98 & C++11 PPRNG
 ```
 
 Or you can do a direct embed in your application.
@@ -60,27 +62,27 @@ Below is a breakdown of all functions that are available in the SITMO header fil
 
 | Expression	                | Description
 |:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| prng_engine()	              | Creates an engine with a default initial state.                                                                                                                                                    | 
-| prng_engine(prng_engine& x)	| Creates an engine with the same initial state as the engine x.                                                                                                                                     |
-| prng_engine(uint32_t s)	    | Creates an engine with initial state determined by s. Engines created with different initial states have the guarantee to generate independent non-overlapping random sequences of length $2^128$. |
-| prng_engine(SeedSeq q)	    | Creates an engine with an initial state that depends on a sequence produced by one call to q.generate.                                                                                             |
+| prng()	              | Creates an engine with a default initial state.                                                                                                                                                    | 
+| prng(prng& x)	| Creates an engine with the same initial state as the engine x.                                                                                                                                     |
+| prng(uint32_t s)	    | Creates an engine with initial state determined by s. Engines created with different initial states have the guarantee to generate independent non-overlapping random sequences of length $2^128$. |
+| prng(SeedSeq q)	    | Creates an engine with an initial state that depends on a sequence produced by one call to q.generate.                                                                                             |
 
 ## Seed modifiers
 
 To use the seed modifiers, one must first construct an engine using a method detailed in the previous table.
 
-```{r mm, engine='Rcpp',eval = F}
-// Generate engine called e. 
-sitmo::prng_engine e;
+```{Rcpp, eval = FALSE}
+// Generate engine called eng_org. 
+sitmo::prng eng_org;
 ```
 
 From there, the engine state can be modified using: 
 
 | Expression	                | Description
 |:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| e.seed()	                  | Returns the random engine to the default state. The same prng_engine().                                                                                                                            |
-| e.seed(uint32_t s)   	      | Set the engine to a state determined by s. Same as prng_engine(uint32_t s)                                                                                                                         |
-| e.seed(SeedSeq q)	          | Set the engine to a state that depends on a sequence produced by one call to q.generate. Same as prng_engine(SeedSeq q)                                                                            |
+| e.seed()	                  | Returns the random engine to the default state. The same prng().                                                                                                                            |
+| e.seed(uint32_t s)   	      | Set the engine to a state determined by s. Same as prng(uint32_t s)                                                                                                                         |
+| e.seed(SeedSeq q)	          | Set the engine to a state that depends on a sequence produced by one call to q.generate. Same as prng(SeedSeq q)                                                                            |
 | e()	                        | Advances the internal state and returns a 32 bit random number.                                                                                                                                    |
 | e.discard(uint64_t n)	      | Advances the internal state with n steps in constant time.                                                                                                                                         |
 
@@ -90,8 +92,8 @@ Using the same engine created above, one can access additional state information
 
 | Expression	                | Description
 |:----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| e1 == e2	                  | Test for equivalence of two prng_engine’s. Two engines are the same if they generate the exact same random sequence.                                                                               |
-| e1 != e2	                  | Test for non-equivalence of two prng_engine’s. Two engines are different if they generate different random sequences.                                                                              |
+| e1 == e2	                  | Test for equivalence of two prng’s. Two engines are the same if they generate the exact same random sequence.                                                                               |
+| e1 != e2	                  | Test for non-equivalence of two prng’s. Two engines are different if they generate different random sequences.                                                                              |
 | e.version()	                | The current version of the engine, returns the value 2                                                                                                                                             |
 
 ## Examples
@@ -103,7 +105,8 @@ The examples displayed in the vignette are taken directly from the project's `sr
 
 Below is the most rudimentary example using `sitmo`. It describes the process of creating a `sitmo` engine and obtaining a draw. 
 
-```{r engine='Rcpp', eval = F}
+```{Rcpp, eval = FALSE}
+#include <Rcpp.h>
 #include <sitmo.h> // SITMO PPRNG
 
 // [[Rcpp::depends(sitmo)]]
@@ -123,7 +126,7 @@ Rcpp::NumericVector sitmo_draws(unsigned int n) {
   Rcpp::NumericVector o(n);
   
   // Create a prng engine
-  sitmo::prng_engine eng;
+  sitmo::prng eng;
   
   // Draw from base engine
   for (unsigned int i=0; i< n ; ++i){
@@ -139,7 +142,8 @@ Rcpp::NumericVector sitmo_draws(unsigned int n) {
 Here the ability for a seed to be set is used. 
 
 
-```{r engine='Rcpp', eval = F}
+```{Rcpp, eval = FALSE}
+#include <Rcpp.h>
 #include <sitmo.h> // SITMO PPRNG
 
 // [[Rcpp::depends(sitmo)]]
@@ -167,7 +171,7 @@ Rcpp::NumericVector sitmo_engine_seed(unsigned int n, unsigned int seed) {
   Rcpp::NumericVector o(n);
   
   // Create a prng engine with a specific seed
-  sitmo::prng_engine eng(static_cast<uint32_t>(seed));
+  sitmo::prng eng(static_cast<uint32_t>(seed));
   
   // Draw from base engine
   for (unsigned int i=0; i < n; ++i){
@@ -183,7 +187,8 @@ Rcpp::NumericVector sitmo_engine_seed(unsigned int n, unsigned int seed) {
 
 The code used here can be found to work when the initial state of the engine needs to be reverted. 
 
-```{r engine='Rcpp', eval = F}
+```{Rcpp, eval = FALSE}
+#include <Rcpp.h>
 #include <sitmo.h> // SITMO PPRNG
 
 // [[Rcpp::depends(sitmo)]]
@@ -207,7 +212,7 @@ Rcpp::NumericMatrix sitmo_engine_reset(unsigned int n, unsigned int seed) {
   Rcpp::NumericMatrix o(n,2);
   
   // Create a prng engine with a specific seed
-  sitmo::prng_engine eng(static_cast<uint32_t>(seed));
+  sitmo::prng eng(static_cast<uint32_t>(seed));
   
   // Draw from base engine
   for (unsigned int i=0; i < n ; ++i){
@@ -231,11 +236,11 @@ Rcpp::NumericMatrix sitmo_engine_reset(unsigned int n, unsigned int seed) {
 
 This example displays the ability of `sitmo` to handle parallel streams of rng when a predefined number of streams is known.
 
-```{r engine='Rcpp',eval = F}
+```{Rcpp, eval = FALSE}
+#include <Rcpp.h>
 #include <sitmo.h> // SITMO PPRNG
 
 // [[Rcpp::depends(sitmo)]]
-
 
 //' Two RNG engines running side-by-side
 //' 
@@ -264,10 +269,10 @@ Rcpp::NumericMatrix sitmo_two_seeds(unsigned int n, Rcpp::NumericVector seeds) {
   Rcpp::NumericMatrix o(n,2);
   
   // Create a prng engine with a specific seed
-  sitmo::prng_engine eng1;
+  sitmo::prng eng1;
   eng1.seed(seeds(0));
   
-  sitmo::prng_engine eng2;
+  sitmo::prng eng2;
   eng2.seed(seeds(1));
 
   // Draw from base engine
@@ -284,7 +289,8 @@ Rcpp::NumericMatrix sitmo_two_seeds(unsigned int n, Rcpp::NumericVector seeds) {
 
 Under C++98, one does not have access to the C++11 implementation of the Uniform distribution. This is particularly problematic as a lot of the distribution RNG rely upon being able to sample from $\left[0,1\right]$ ala the Probability Integral Transformation Theorem. Additional details are discussed in a separate vignette ("Making a Uniform PRNG with sitmo").
 
-```{r engine='Rcpp', eval = F}
+```{Rcpp, eval = FALSE}
+#include <Rcpp.h>
 #include <sitmo.h> // SITMO PPRNG
 
 // [[Rcpp::depends(sitmo)]]
@@ -308,14 +314,14 @@ Rcpp::NumericVector runif_sitmo(unsigned int n, double min = 0.0, double max = 1
   Rcpp::NumericVector o(n);
   
   // Create a prng engine
-  sitmo::prng_engine eng(seed);
+  sitmo::prng eng(seed);
   // Obtain the range between max and min
   double dis = max - min; 
   
   for(int i = 0; i < n; ++i) {
     // Sample from the RNG and divide it by the maximum value possible (can also use SITMO_RAND_MAX, which is 4294967295)
     // Apply appropriate scale (MAX-MIN)
-    o[i] = min + ((double) eng() / (sitmo::prng_engine::max())) * (dis);
+    o[i] = min + ((double) eng() / (sitmo::prng::max())) * (dis);
   }
   
   return o;
@@ -326,10 +332,9 @@ Rcpp::NumericVector runif_sitmo(unsigned int n, double min = 0.0, double max = 1
 
 One of the primary reasons why `sitmo` is desirable is because it can be used under parallelization via OpenMP and MPI. Below is an example where it is used in a parallel setting to generate numbers. Note, to ensure that code works cross-platform, please protect against OpenMP includes as the package will otherwise fail on OS X. 
 
-
 To protect against a lack of OpenMP headers use:
 
-```{r engine='Rcpp', eval = F}
+```{Rcpp, eval = FALSE}
 #ifdef _OPENMP
 #include <omp.h>
 #endif
@@ -337,7 +342,7 @@ To protect against a lack of OpenMP headers use:
 
 When writing sections of parallelized code, also protect that code using:
 
-```{r engine='Rcpp', eval = F}
+```{Rcpp, eval = FALSE}
 #ifdef _OPENMP
 // multithreaded OpenMP version of code
 #else
@@ -354,7 +359,7 @@ PKG_CFLAGS = $(SHLIB_OPENMP_CFLAGS)
 
 With this being said, let's take a look at an example parallelization using `sitmo`:
 
-```{r engine='Rcpp', eval = F}
+```{Rcpp, eval = FALSE}
 #include <Rcpp.h>
 #include <sitmo.h> // SITMO PPRNG
 
@@ -365,7 +370,6 @@ With this being said, let's take a look at an example parallelization using `sit
 #endif
 
 // [[Rcpp::plugins(openmp)]]
-
 
 //' Test Generation using sitmo and C++11
 //' 
@@ -414,7 +418,7 @@ Rcpp::NumericVector sitmo_parallel(unsigned int n, Rcpp::NumericVector& seeds){
       active_seed = static_cast<uint32_t>(seeds[0]);
     #endif
     
-    sitmo::prng_engine eng( active_seed );
+    sitmo::prng eng( active_seed );
   
     // Parallelize the Loop
     #ifdef _OPENMP

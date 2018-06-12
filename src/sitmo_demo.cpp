@@ -17,7 +17,7 @@ Rcpp::NumericVector sitmo_draws(unsigned int n) {
   Rcpp::NumericVector o(n);
   
   // Create a prng engine
-  sitmo::prng_engine eng;
+  sitmo::prng eng;
   
   // Draw from base engine
   for (unsigned int i=0; i< n ; ++i){
@@ -50,7 +50,7 @@ Rcpp::NumericVector sitmo_engine_seed(unsigned int n, unsigned int seed) {
   Rcpp::NumericVector o(n);
   
   // Create a prng engine with a specific seed
-  sitmo::prng_engine eng(static_cast<uint32_t>(seed));
+  sitmo::prng eng(static_cast<uint32_t>(seed));
   
   // Draw from base engine
   for (unsigned int i=0; i < n; ++i){
@@ -80,7 +80,7 @@ Rcpp::NumericMatrix sitmo_engine_reset(unsigned int n, unsigned int seed) {
   Rcpp::NumericMatrix o(n,2);
   
   // Create a prng engine with a specific seed
-  sitmo::prng_engine eng(static_cast<uint32_t>(seed));
+  sitmo::prng eng(static_cast<uint32_t>(seed));
   
   // Draw from base engine
   for (unsigned int i=0; i < n ; ++i){
@@ -127,10 +127,10 @@ Rcpp::NumericMatrix sitmo_two_seeds(unsigned int n, Rcpp::NumericVector seeds) {
   Rcpp::NumericMatrix o(n, 2);
   
   // Create a prng engine with a specific seed
-  sitmo::prng_engine eng1;
+  sitmo::prng eng1;
   eng1.seed(seeds(0));
   
-  sitmo::prng_engine eng2;
+  sitmo::prng eng2;
   eng2.seed(seeds(1));
 
   // Draw from base engine

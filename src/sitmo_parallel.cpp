@@ -53,7 +53,7 @@ Rcpp::NumericVector sitmo_parallel(unsigned int n, Rcpp::NumericVector& seeds){
   active_seed = static_cast<uint32_t>(seeds[0]);
 #endif
   
-  sitmo::prng_engine eng( active_seed );
+  sitmo::prng eng( active_seed );
   
   // Parallelize the Loop
 #ifdef _OPENMP

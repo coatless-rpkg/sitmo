@@ -71,7 +71,8 @@ depends statement that must be included after `sitmo.h` header. This plugin
 statement indicates that a dependency is `sitmo`.
 
 ```cpp
-#include <rgen.h> 
+#include <Rcpp.h>
+#include <sitmo.h> 
 // [[Rcpp::depends(sitmo)]]
 ```
 
