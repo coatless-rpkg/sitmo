@@ -39,7 +39,7 @@ also available under the MIT license.
 
 # Accessing and using engines in `sitmo`
 
-The header files for `sitmo`, `threejay`, and `vandercorput` engines
+The header files for `sitmo`, `threefry`, and `vandercorput` engines
 are contained within this package. To use one of these engine header files
 within your own package, you can link to the `sitmo` package within your
 description file. e.g.
