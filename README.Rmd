@@ -93,7 +93,7 @@ Rcpp::NumericVector sitmo_draws_ex(unsigned int n) {
   Rcpp::NumericVector o(n);
   
   // Create a prng engine
-  sitmo::prng_engine eng;
+  sitmo::prng eng;
   
   // Draw from base engine
   for (unsigned int i=0; i< n ; ++i){
