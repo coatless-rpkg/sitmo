@@ -16,10 +16,10 @@ Thirdly, examples will be provided of how one can use the `sitmo` header.
 
 # What is `sitmo` and can I eat it? 
 
-`sitmo` is a Parallel Psuedo Random Number Generator (PPRNG) that was conceived
-by Thijs van den Berg after reading 
-Salmon, K., et al.'s "Parallel Random Numbers: As Easy as 1, 2, 3" in the
-conference proceedings of the 2011 International Conference for
+`sitmo` is the consultancy agency founded by Thijs van den Berg. They first
+released a Parallel Psuedo Random Number Generator (PPRNG) under the same
+name using work in Salmon, K., et al.'s "Parallel Random Numbers: As Easy as 1, 2, 3" 
+in the conference proceedings of the 2011 International Conference for
 High Performance Computing, Networking, Storage and Analysis.
 Support for `sitmo` exists for both C++ standards: C++98 and C++11.
 Furthermore, there are many different PPRNGs that are available:
@@ -31,11 +31,18 @@ appealing in my eyes than [sitmo](https://github.com/stdfin/random/),
 which provides a straight forward interface to generating psuedo-random numbers
 (RNG), the least restrictive license (MIT), and speed. 
 
-# Accessing and using `sitmo`
+Over the span of the last few years, the `sitmo` agency has released two
+other engines of interest for C++11: `threefry` and `vandercorput`. The `threefry` engine
+is a rewritten PPRNG version of `sitmo` for C++11 whereas the `vandercorput` engine
+provides one dimensional low-discrepancy sequencing.  The latter engines are
+also available under the MIT license.
 
-The `sitmo` header file is contained within this package.
-To use the `sitmo` header within your own package, you can link to this 
-package within your description file. e.g.
+# Accessing and using engines in `sitmo`
+
+The header files for `sitmo`, `threejay`, and `vandercorput` engines
+are contained within this package. To use one of these engine header files
+within your own package, you can link to the `sitmo` package within your
+description file. e.g.
 
     LinkingTo: Rcpp, sitmo
     Imports:
@@ -51,12 +58,19 @@ Within a `C++` file in `src/`, then add:
 ```{Rcpp, eval = FALSE}
 #include <Rcpp.h>
 #include <sitmo.h>      // SITMO for C++98 & C++11 PPRNG
+#include <threefry.h>   // THREEFRY C++11-only PPRNG
+#include <vandercorput> // VANDERCORPUT C++11-only Low-discrepancy sequence
 ```
+
+You do _not_ need to add each header file. Pick and choose the appropriate
+engine for your needs.
 
 Or you can do a direct embed in your application.
 I would advise for the prior though and, hence, the reason for this package. 
 
-Below is a breakdown of all functions that are available in the SITMO header file. 
+Below is a breakdown of functions that are available for the engines.
+Please note, that the engine predominantly highlight is the original:
+`sitmo::prng`.
 
 ## Construct an engine
 
@@ -74,6 +88,12 @@ To use the seed modifiers, one must first construct an engine using a method det
 ```{Rcpp, eval = FALSE}
 // Generate engine called eng_org. 
 sitmo::prng eng_org;
+
+// Generate engine called eng_org. 
+sitmo::threefry eng_tf;
+
+// Generate engine called eng_vc. 
+sitmo::vandercorput eng_vc;
 ```
 
 From there, the engine state can be modified using: 
@@ -147,7 +167,6 @@ Here the ability for a seed to be set is used.
 #include <sitmo.h> // SITMO PPRNG
 
 // [[Rcpp::depends(sitmo)]]
-
 
 //' Example Seed Set and RNG Draws with sitmo
 //' 
