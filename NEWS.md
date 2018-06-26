@@ -1,3 +1,13 @@
+# sitmo 2.0.0
+
+## NEW
+
+- Added `threefry` and `vandercorput` (#9, #10).
+
+## CHANGES
+
+- Removed the `Rcpp.plugin.maker()`
+
 # sitmo 1.2.2
 
 ## BUGFIXES

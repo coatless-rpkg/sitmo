@@ -382,7 +382,9 @@ private:
   // are returned in eight 32 bit chunks
 };
 
-
+typedef prng_engine prng;
+typedef prng_engine sitmo;
+  
 } // namespace sitmo
 
 #undef MIXK

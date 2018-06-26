@@ -21,14 +21,14 @@ Rcpp::NumericVector runif_sitmo(unsigned int n, double min = 0.0, double max = 1
   Rcpp::NumericVector o(n);
   
   // Create a prng engine
-  sitmo::prng_engine eng(seed);
+  sitmo::prng eng(seed);
   // Obtain the range between max and min
   double dis = max - min; 
   
   for(unsigned int i = 0; i < n; ++i) {
     // Sample from the RNG and divide it by the maximum value possible (can also use SITMO_RAND_MAX, which is 4294967295)
     // Apply appropriate scale (MAX-MIN)
-    o[i] = min + ((double) eng() / (sitmo::prng_engine::max())) * (dis);
+    o[i] = min + ((double) eng() / (sitmo::prng::max())) * (dis);
   }
   
   return o;

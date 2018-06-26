@@ -71,7 +71,7 @@ With this being said, we opt to focus the remainder of this vignette on the crea
 The basics of creating a random uniform distribution are as follows:
 
 1. The generation of random numbers $R$ (e.g. 18885, 23945734, 4298034852, and so on)
-2. The known maximum/ceiling of the random number generation $\max\left(R\right)$ (e.g. `sitmo::prng_engine::max()` or `SITMO_RAND_MAX`) 
+2. The known maximum/ceiling of the random number generation $\max\left(R\right)$ (e.g. `sitmo::prng::max()` or `SITMO_RAND_MAX`) 
 3. The ability to scale the randomly generated number between $[a,b]$.
 
 `sitmo` provides a high quality version of 1. as shown informally in the next section and a means of acquiring 2. Thus, one is only left with creating the correct scaling equation. In particular, this equation is governed by:
@@ -107,7 +107,7 @@ Rcpp::NumericVector runif_sitmo(unsigned int n,
   Rcpp::NumericVector o(n);
   
   // Create a prng engine
-  sitmo::prng_engine eng(seed);
+  sitmo::prng eng(seed);
   
   // Obtain the range between max and min
   double dis = max - min; 
@@ -116,7 +116,7 @@ Rcpp::NumericVector runif_sitmo(unsigned int n,
     // Sample from the RNG and divide it by the maximum value possible 
     // (c.f. SITMO_RAND_MAX, which is 4294967295)
     // Apply appropriate scale dis = (MAX-MIN) and add min starting loc
-    o[i] = min + ((double) eng() / (sitmo::prng_engine::max())) * (dis);
+    o[i] = min + ((double) eng() / (sitmo::prng::max())) * (dis);
   }
   
   return o;
