@@ -3,9 +3,11 @@
 ## NEW
 
 - Added `threefry` and `vandercorput` (#9, #10).
+- Added contributor Ralf Stubner (@rstub)
 
 ## CHANGES
 
+- Modified `threefry` to be fully _C++11_ compliant. (#11, @rstub)
 - Removed the `Rcpp.plugin.maker()`
 
 # sitmo 1.2.2
