@@ -17,9 +17,9 @@ knitr::opts_chunk$set(
 
 [![Travis-CI Build Status](https://travis-ci.org/coatless/sitmo.svg?branch=master)](https://travis-ci.org/coatless/sitmo)[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/sitmo)](http://www.r-pkg.org/pkg/sitmo) [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/sitmo)](https://cran.r-project.org/package=sitmo)
 
-# `sitmo`: A header-only package for _R_ containing the SITMO PPRNG
+# `sitmo`: A header-only package for _R_ containing SITMO PPRNGs
 
-The repository houses the `sitmo` R package for Parallel Psuedo Random Number Generation (PPRNG). The package provides a way to obtain the `sitmo` header files via **LinkTo**.
+The repository houses the `sitmo` R package for Parallel Psuedo Random Number Generation (PPRNG). The package provides a way to obtain the SITMO Consulting's PPRNG header files via **LinkTo**.
 
 ## Installing `sitmo`
 
