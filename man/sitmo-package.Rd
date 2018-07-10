@@ -27,11 +27,16 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: James Balamuta \email{balamut2@illinois.edu} [copyright holder]
+\strong{Maintainer}: James Balamuta \email{balamut2@illinois.edu} (0000-0003-2826-8458) [copyright holder]
 
 Authors:
 \itemize{
   \item Thijs van den Berg \email{thijs@sitmo.com} [copyright holder]
+}
+
+Other contributors:
+\itemize{
+  \item Ralf Stubner \email{ralf.stubner@daqana.com} [contributor]
 }
 
 }
