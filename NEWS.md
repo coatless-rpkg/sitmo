@@ -5,6 +5,10 @@
 - Modified `vandercorput.h` by adding a newline to the end of the file.
 - Modified `Makevars{.win}` to use `$(SHLIB_OPENMP_CXXFLAGS)` instead of `$(SHLIB_OPENMP_CFLAGS)` in `PKG_CXXFLAGS`
 
+## TESTING INFRASTRUCTURE
+
+- Modified `.travis.yml` to compile using both cores instead of only one.
+
 # sitmo 2.0.0
 
 ## NEW
