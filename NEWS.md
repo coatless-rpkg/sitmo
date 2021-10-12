@@ -1,3 +1,13 @@
+# sitmo 2.0.2
+
+## DEPLOYMENT
+
+- Switched from using TravisCI to using GitHub Actions.
+
+## BUGFIXES
+
+- Addressed unbalanced chunk delimiters in vignette. (thanks [yihui/knitr#2057](https://github.com/yihui/knitr/issues/2057)!)
+
 # sitmo 2.0.1
 
 ## CHANGES
