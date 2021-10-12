@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // sitmo_draws
 Rcpp::NumericVector sitmo_draws(unsigned int n);
 RcppExport SEXP _sitmo_sitmo_draws(SEXP nSEXP) {
