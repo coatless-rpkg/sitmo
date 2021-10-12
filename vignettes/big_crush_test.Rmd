@@ -23,7 +23,7 @@ vignette: >
 
 Running the Big Crush test from the TestU01 suite has yielded a complete pass rate (e.g "All tests were passed") with the specifics of each of the 103 tests being detailed below.
 
-```{r eval = F, engine='bash'}
+```bash
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                  Starting BigCrush
                  Version: TestU01 1.2.3
@@ -3803,4 +3803,4 @@ Generator state:
  Total CPU time:   03:44:06.82
  
  All tests were passed
- ```
+```
