@@ -1,7 +1,0 @@
-language: r
-cache: package
-sudo: false
-
-env:
-  global:
-  - MAKEFLAGS="-j 2"
