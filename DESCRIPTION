@@ -19,7 +19,6 @@ Depends:
 URL: https://github.com/coatless/sitmo, http://thecoatlessprofessor.com/projects/sitmo/, https://github.com/stdfin/random/
 BugReports: https://github.com/coatless/sitmo/issues
 License: MIT + file LICENSE
-LazyData: true
 LinkingTo: Rcpp
 Imports:
     Rcpp (>= 0.12.13)
