@@ -3,8 +3,8 @@
 
 [![R-CMD-check](https://github.com/coatless/sitmo/workflows/R-CMD-check/badge.svg)](https://github.com/coatless/sitmo/actions)
 [![CRAN RStudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/sitmo)](http://www.r-pkg.org/pkg/sitmo)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/sitmo)](https://cran.r-project.org/package=sitmo)
+downloads](https://cranlogs.r-pkg.org/badges/sitmo)](https://www.r-pkg.org/pkg/sitmo)
+[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/sitmo)](https://cran.r-project.org/package=sitmo)
 <!-- badges: end -->
 
 # `sitmo`: A header-only package for *R* containing SITMO PPRNGs
@@ -39,8 +39,8 @@ that is compatible with R.
 
 For help on obtaining a compiler consult:
 
--   [macOS](http://thecoatlessprofessor.com/programming/r-compiler-tools-for-rcpp-on-os-x/)
--   [Windows](http://thecoatlessprofessor.com/programming/rcpp/install-rtools-for-rcpp/)
+-   [macOS](https://thecoatlessprofessor.com/programming/r-compiler-tools-for-rcpp-on-os-x/)
+-   [Windows](https://thecoatlessprofessor.com/programming/rcpp/install-rtools-for-rcpp/)
 
 With a compiler in hand, one can then install the package from GitHub
 by:

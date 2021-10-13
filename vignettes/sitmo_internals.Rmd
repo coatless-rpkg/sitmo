@@ -26,7 +26,7 @@ Furthermore, there are many different PPRNGs that are available:
 [trng](https://www.numbercrunch.de/trng/), 
 [SPRNG](http://www.sprng.org/), 
 [RngStreams](https://statmath.wu.ac.at/software/RngStreams/doc/rngstreams.html),
-[OMPRNG](https://homepage.stat.uiowa.edu/~mbognar/omprng/). However, none are as
+OMPRNG. However, none are as
 appealing in my eyes than [sitmo](https://github.com/stdfin/random/), 
 which provides a straight forward interface to generating psuedo-random numbers
 (RNG), the least restrictive license (MIT), and speed. 

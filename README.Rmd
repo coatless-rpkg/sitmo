@@ -51,8 +51,8 @@ compatible with R.
 
 For help on obtaining a compiler consult:
 
--   [macOS](http://thecoatlessprofessor.com/programming/r-compiler-tools-for-rcpp-on-os-x/)
--   [Windows](http://thecoatlessprofessor.com/programming/rcpp/install-rtools-for-rcpp/)
+-   [macOS](https://thecoatlessprofessor.com/programming/r-compiler-tools-for-rcpp-on-os-x/)
+-   [Windows](https://thecoatlessprofessor.com/programming/rcpp/install-rtools-for-rcpp/)
 
 With a compiler in hand, one can then install the package from GitHub by:
 
