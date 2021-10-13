@@ -1,19 +1,19 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis-CI Build
-Status](https://travis-ci.org/coatless/sitmo.svg?branch=master)](https://travis-ci.org/coatless/sitmo)[![CRAN
-RStudio mirror
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/coatless/sitmo/workflows/R-CMD-check/badge.svg)](https://github.com/coatless/sitmo/actions)
+[![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/sitmo)](http://www.r-pkg.org/pkg/sitmo)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/sitmo)](https://cran.r-project.org/package=sitmo)
+<!-- badges: end -->
 
-`sitmo`: A header-only package for *R* containing SITMO PPRNGs
-==============================================================
+# `sitmo`: A header-only package for *R* containing SITMO PPRNGs
 
 The repository houses the `sitmo` R package for Parallel Psuedo Random
 Number Generation (PPRNG). The package provides a way to obtain the
 SITMO Consulting’s PPRNG header files via **LinkTo**.
 
-Installing `sitmo`
-------------------
+## Installing `sitmo`
 
 `sitmo` is available on both CRAN (Stable) and GitHub (Development).
 Using CRAN to download and install `sitmo` is the preferred option as it
@@ -51,8 +51,7 @@ install.packages("devtools")
 devtools::install_github("coatless/sitmo")
 ```
 
-Using `sitmo`
--------------
+## Using `sitmo`
 
 There are two ways to use `sitmo`. The first is to use `sitmo` in a
 standalone script. The script is typically built using `sourceCpp()`.
