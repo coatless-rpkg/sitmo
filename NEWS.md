@@ -7,6 +7,7 @@
 ## BUGFIXES
 
 - Addressed unbalanced chunk delimiters in vignette. (thanks [yihui/knitr#2057](https://github.com/yihui/knitr/issues/2057)!)
+- Addressed compilation with Rcpp 1.0.7 introducing new stream handling. 
 
 # sitmo 2.0.1
 
