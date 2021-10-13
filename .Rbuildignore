@@ -6,3 +6,4 @@
 ^README-.*\.png$
 ^\.github$
 ^revdep$
+^CRAN-RELEASE$
