@@ -16,13 +16,13 @@ Description: Provided within are two high quality and fast PPRNGs that may be
     provide additional information.
 Depends:
     R (>= 3.2.0)
-URL: https://github.com/coatless/sitmo, http://thecoatlessprofessor.com/projects/sitmo/, https://github.com/stdfin/random/
-BugReports: https://github.com/coatless/sitmo/issues
+URL: https://github.com/coatless-rpkg/sitmo, https://r-pkg.thecoatlessprofessor.com/sitmo/, https://github.com/stdfin/random/
+BugReports: https://github.com/coatless-rpkg/sitmo/issues
 License: MIT + file LICENSE
 LinkingTo: Rcpp
 Imports:
     Rcpp (>= 0.12.13)
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
 Suggests: 
     knitr,
     rmarkdown,
