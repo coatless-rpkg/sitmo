@@ -8,3 +8,4 @@ src/*.so
 src/*.dll
 .DS_Store
 CRAN-RELEASE
+docs
