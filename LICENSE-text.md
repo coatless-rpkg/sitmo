@@ -1,0 +1,4 @@
+# License
+
+    YEAR: 2016
+    COPYRIGHT HOLDER: Thijs van den Berg, James Balamuta
